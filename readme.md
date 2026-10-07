@@ -19,7 +19,16 @@ KPOINTS
 
 Configure `VPKIT.in` for **preprocessing**—first line set to `1`—and select the appropriate dimensionality and strain sampling.
 
-Use the following strains:
+Sample `VPKIT.in` for a 3D bulk material:
+
+```text
+1                    ! 1 = preprocessing (generate strained structures); 2 = postprocessing (fit elastic constants)
+3D                   ! 2D for monolayers; 3D for bulk
+7                    ! number of strain points
+-0.015 -0.010 -0.005 0.000 0.005 0.010 0.015   ! strain values
+```
+
+This uses the following strains:
 
 ```text
 -0.015  -0.010  -0.005  0.000  +0.005  +0.010  +0.015
