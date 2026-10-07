@@ -46,23 +46,11 @@ VASPKIT generates the independent strain-mode folders, named `C*`, containing th
 
 Place `submit_job.sh` and `submit_jobs.sh` in the parent directory containing the `C*` folders.
 
-Copy both scripts into **each `C*` folder**, then launch the submission script there:
+Go through **each `C*` folder** one at a time: copy both scripts into it, `cd` into it, and submit:
 
 ```bash
-for d in C*/; do
-    cp submit_job.sh submit_jobs.sh "$d"
-
-    (
-        cd "$d" || exit
-        chmod +x submit_job.sh submit_jobs.sh
-        nohup ./submit_jobs.sh > log &
-    )
-done
-```
-
-This runs the following command in each strain-mode directory:
-
-```bash
+cp ../submit_job.sh ../submit_jobs.sh .
+chmod +x submit_job.sh submit_jobs.sh
 nohup ./submit_jobs.sh > log &
 ```
 
